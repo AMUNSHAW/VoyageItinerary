@@ -1,0 +1,110 @@
+﻿@model VoyageItinerary.Models.ItineraryModel
+
+@{
+    ViewBag.Title = "CreateItinerary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    /* show the move cursor as the user moves the mouse over the panel header.*/
+    #draggablePanelList .panel-heading {
+        cursor: move;
+    }
+</style>
+
+<div class="panel panel-primary col-md-12">
+    <ul id="draggablePanelList" class="list-unstyled">
+        <li class="panel panel-info col-md-5 col-md-offset-1" style="position:relative;">
+
+            <div class="panel-heading">
+                @Html.DisplayNameFor(model => model.PlaceName)
+                @Html.DisplayFor(model => model.PlaceName)
+            </div>
+
+
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.FromDate)
+
+                    @Html.DisplayFor(model => model.FromDate)
+                </div>
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.ToDate)
+
+                    @Html.DisplayFor(model => model.ToDate)
+                </div>
+                <div class="form-group">
+
+                    @Html.DisplayNameFor(model => model.Budget)
+
+                    @Html.DisplayFor(model => model.Budget)
+                </div>
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.NoOfPeople)
+
+                    @Html.DisplayFor(model => model.NoOfPeople)
+                </div>
+
+            </div>
+
+        </li>
+
+        <li class="panel panel-info col-md-5 col-md-offset-1" style="position:relative;">
+
+            <div class="panel-heading">
+                @Html.DisplayNameFor(model => model.PlaceName)
+                @Html.DisplayFor(model => model.PlaceName)
+            </div>
+
+
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.FromDate)
+
+                    @Html.DisplayFor(model => model.FromDate)
+                </div>
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.ToDate)
+
+                    @Html.DisplayFor(model => model.ToDate)
+                </div>
+                <div class="form-group">
+
+                    @Html.DisplayNameFor(model => model.Budget)
+
+                    @Html.DisplayFor(model => model.Budget)
+                </div>
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.NoOfPeople)
+
+                    @Html.DisplayFor(model => model.NoOfPeople)
+                </div>
+
+            </div>
+
+        </li>
+    </ul>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>
+<script type="text/javascript">
+   jQuery(  function ($) {
+        var panelList = $('#draggablePanelList');
+
+        panelList.sortable({
+            // Only make the .panel-heading child elements support dragging.
+            // Omit this to make then entire <li>...</li> draggable.
+            handle: '.panel-heading',
+            update: function () {
+                $('.panel', panelList).each(function (index, elem) {
+                    var $listItem = $(elem),
+                        newIndex = $listItem.index();
+
+                    // Persist the new indices.
+                });
+            }
+        });
+   });
+</script>
